@@ -1,47 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Latihan Coding Dart - Ratu Klarisa Rahadianti</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        a {
-            color: purple;
-            text-decoration: underline;
-        }
-        iframe {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Tugas Program Dart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1d2671, #c33764);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 20px;
+      max-width: 800px;
+      width: 100%;
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .desc {
+      margin: 15px 0;
+      text-align: center;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .btn {
+      display: block;
+      margin: 15px auto;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 30px;
+      background: #00e5ff;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00bcd4;
+      transform: scale(1.05);
+    }
+
+    .output-img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 15px;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: white;
+      width: 95%;
+      max-width: 1000px;
+      height: 90%;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      animation: zoomIn 0.4s ease;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      cursor: pointer;
+      color: black;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @keyframes fadeIn {
+      from {opacity:0; transform: translateY(20px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+
+    @keyframes zoomIn {
+      from {transform: scale(0.7);}
+      to {transform: scale(1);}
+    }
+
+    @media (max-width:600px) {
+      .desc {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <h2>Latihan Coding Dart</h2>
-    <h3>Ratu Klarisa Rahadianti</h3>
+<div class="card">
+  <h2>Program Fibonacci (Dart)</h2>
 
-    <p>
-        Ini coding latihan:
-        <a href="https://gist.github.com/Ratu06/9b4bd619598ce0a8fd87cdb337a93e12" target="_blank">
-            Lihat di GitHub Gist
-        </a>
-    </p>
+  <div class="desc">
+    Program ini menghitung bilangan Fibonacci menggunakan metode rekursif 
+    dengan input n = 20. Output ditampilkan melalui DartPad.
+  </div>
 
-    <p>
-        Buka di DartPad:
-        <a href="https://dartpad.dev/?id=9b4bd619598ce0a8fd87cdb337a93e12" target="_blank">
-            Buka DartPad
-        </a>
-    </p>
+  <button class="btn" onclick="openModal()">📄 Lihat Source Code</button>
 
-    <iframe 
-        src="https://dartpad.dev/embed-dart.html?id=9b4bd619598ce0a8fd87cdb337a93e12"
-        width="100%" 
-        height="600">
-    </iframe>
+  <!-- GANTI fibonacci.png DENGAN FILE SCREENSHOT OUTPUT -->
+  <img src="fibonacci.png" alt="Output Program" class="output-img">
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">✖</span>
+
+    <iframe src="https://dartpad.dev/?id=|https://dartpad.dev/b66543e24635ee27f3191b50bf2bfcdb"></iframe>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById("modal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
