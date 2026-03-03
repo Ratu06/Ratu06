@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Laporan Materi OOP Dart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f6f9;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    pre {
+      background-color: #1e1e1e;
+      color: #00ff88;
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 6px;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Nama : Ratu Klarisa Rahadianti <br>NIM : 251410010</h1>
+<h2>LAPORAN MATERI OBJECT ORIENTED PROGRAMMING (OOP) - DART</h2>
+
+<div class="section box">
+<h2>1. Pengertian OOP</h2>
+<p>
+Object Oriented Programming (OOP) adalah paradigma pemrograman yang berorientasi pada objek.
+Objek dibuat dari sebuah kelas (class) yang berisi atribut (data) dan method (fungsi).
+</p>
+<ul>
+<li>Class dan Object</li>
+<li>Encapsulation</li>
+<li>Constructor</li>
+<li>Method</li>
+</ul>
+</div>
+
+<div class="section box">
+<h2>2. Contoh Class dan Object (Tanpa Constructor)</h2>
+<pre>
+class Car {
+  String? model;
+  String? color;
+
+  void start() {
+    print('Car started!');
+  }
+
+  void stop() {
+    print('Car stopped!');
+  }
+}
+</pre>
+<p>Link run di DartPad:</p>
+<a href="https://dartpad.dev" target="_blank">▶ Buka di DartPad</a>
+</div>
+
+<div class="section box">
+<h2>3. Constructor</h2>
+<pre>
+class Car {
+  String? model;
+  String? color;
+
+  Car(this.model, this.color);
+
+  void start() {
+    print('Car started!');
+  }
+}
+</pre>
+<p>Link run di DartPad:</p>
+<a href="https://dartpad.dev" target="_blank">▶ Buka di DartPad</a>
+</div>
+
+<div class="section box">
+<h2>4. Validasi Data (Class Mahasiswa)</h2>
+<pre>
+class Mahasiswa {
+  String nama;
+  String nim;
+  double ipk;
+
+  Mahasiswa(this.nama, this.nim, this.ipk) {
+    if (ipk < 0.0 || ipk > 4.0) {
+      throw ArgumentError('IPK harus berada dalam rentang 0.0 - 4.0');
+    }
+  }
+}
+</pre>
+<a href="https://dartpad.dev" target="_blank">▶ Buka di DartPad</a>
+</div>
+
+<div class="section box">
+<h2>5. Encapsulation</h2>
+<pre>
+class Person {
+  String _name;
+  int age;
+
+  Person(this._name, this.age);
+
+  void setName(String name) {
+    _name = name;
+  }
+
+  String getName() {
+    return _name;
+  }
+}
+</pre>
+<a href="https://dartpad.dev" target="_blank">▶ Buka di DartPad</a>
+</div>
+
+<div class="section box">
+<h2>6. Constructor dengan Named Parameter</h2>
+<pre>
+class Produk {
+  final String id;
+  final String nama;
+  final double harga;
+  final int stok;
+  final String kategori;
+
+  Produk({
+    required this.id,
+    required this.nama,
+    required this.harga,
+    this.stok = 0,
+    this.kategori = 'Umum',
+  });
+}
+</pre>
+<a href="https://dartpad.dev" target="_blank">▶ Buka di DartPad</a>
+</div>
+
+<div class="section box">
+<h2>7. Tugas Bonus (Soal No.3 Halaman 15)</h2>
+<pre>
+class Hewan {
+  String nama;
+
+  Hewan(this.nama);
+
+  void bersuara() {
+    print('$nama mengeluarkan suara.');
+  }
+}
+
+void main() {
+  Hewan kucing = Hewan('Kucing');
+  Hewan anjing = Hewan('Anjing');
+
+  kucing.bersuara();
+  anjing.bersuara();
+}
+</pre>
+<a href="https://dartpad.dev" target="_blank">▶ Buka di DartPad</a>
+</div>
+
+<div class="section box">
+<h2>8. Kesimpulan</h2>
+<p>
+OOP mempermudah pengelolaan program besar karena kode lebih terstruktur,
+mudah dikembangkan, dan lebih aman melalui konsep enkapsulasi dan constructor.
+Paradigma ini sangat cocok digunakan dalam pembuatan aplikasi menggunakan Dart dan Flutter.
+</p>
+</div>
+
+</body>
+</html>
