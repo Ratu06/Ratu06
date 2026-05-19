@@ -2,9 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Tugas Program Dart</title>
+  <title>Tugas Program Dart - Fibonacci</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
     * {
       box-sizing: border-box;
@@ -74,7 +73,7 @@
     .modal {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.8);
       display: none;
       justify-content: center;
       align-items: center;
@@ -89,18 +88,32 @@
       border-radius: 12px;
       position: relative;
       overflow: hidden;
-      animation: zoomIn 0.4s ease;
+      animation: zoomIn 0.3s ease;
     }
 
     .close {
       position: absolute;
       top: 10px;
-      right: 15px;
-      font-size: 22px;
+      right: 18px;
+      font-size: 28px;
       cursor: pointer;
-      color: black;
+      color: #333;
       font-weight: bold;
       z-index: 10;
+      background: rgba(255,255,255,0.8);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: 0.2s;
+    }
+
+    .close:hover {
+      background: red;
+      color: white;
     }
 
     iframe {
@@ -115,39 +128,33 @@
     }
 
     @keyframes zoomIn {
-      from {transform: scale(0.7);}
-      to {transform: scale(1);}
-    }
-
-    @media (max-width:600px) {
-      .desc {
-        font-size: 14px;
-      }
+      from {transform: scale(0.8); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
     }
   </style>
 </head>
 <body>
 
 <div class="card">
-  <h2>Program Fibonacci (Dart)</h2>
-
+  <h2>📊 Program Fibonacci (Dart)</h2>
   <div class="desc">
     Program ini menghitung bilangan Fibonacci menggunakan metode rekursif 
     dengan input n = 20. Output ditampilkan melalui DartPad.
   </div>
 
-  <button class="btn" onclick="openModal()">📄 Lihat Source Code</button>
+  <button class="btn" onclick="openModal()">📄 Lihat Source Code & Run</button>
 
-  <!-- GANTI output.jpg.jpeg DENGAN FILE SCREENSHOT OUTPUT -->
-  <img src="output.jpg.jpeg" alt="Output Program" class="output-img">
+  <!-- Gambar output (pastikan file output.jpg.jpeg tersedia) -->
+  <img src="output.jpg.jpeg" alt="Output Program Fibonacci" class="output-img" 
+       onerror="this.onerror=null; this.src='https://placehold.co/800x200/1e293b/white?text=Gambar+output.jpg.jpeg+tidak+ditemukan'; this.style.objectFit='cover';">
 </div>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">✖</span>
-
-    <iframe src="https://dartpad.dev/?id=https://dartpad.dev/9b4bd619598ce0a8fd87cdb337a93e12"></iframe>
+    <!-- Perbaikan: gunakan embed-dart.html dengan parameter id gist yang benar -->
+    <iframe src="https://dartpad.dev/embed-dart.html?id=92ba8fd7249abb934d2a42af195b1c1a&run=true"></iframe>
   </div>
 </div>
 
@@ -158,6 +165,14 @@
 
   function closeModal() {
     document.getElementById("modal").style.display = "none";
+  }
+
+  // Tutup modal jika klik di luar konten
+  window.onclick = function(event) {
+    let modal = document.getElementById("modal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
   }
 </script>
 
